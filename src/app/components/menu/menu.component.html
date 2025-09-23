@@ -7,7 +7,9 @@
         </div>
         <div class="row">
             <div class="col-12">
-                <app-tarjeta></app-tarjeta>
+                @for (elemento of listaPorsche; track elemento.id) {
+                    <app-tarjeta></app-tarjeta>
+                }
             </div>
         </div>
     </div>

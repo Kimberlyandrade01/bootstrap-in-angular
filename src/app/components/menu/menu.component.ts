@@ -9,5 +9,9 @@ import { TarjetaComponent } from '../tarjeta/tarjeta.component';
   styleUrl: './menu.component.css'
 })
 export class MenuComponent {
-
+  listaPorsche = [
+    { id: 1, modelo: 'Porsche 911 GT3' },
+    { id: 2, modelo: 'Porsche 718 Cayman' },
+    { id: 3, modelo: 'Porsche Taycan' }
+  ];
 }
