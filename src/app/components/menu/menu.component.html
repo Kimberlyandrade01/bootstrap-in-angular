@@ -1,16 +1,97 @@
-<div class="card text-center">
+<div class="card text-center p-3">
     <div class="menu">
         <div class="row fw-bold">
             <div class="col-12">
                 <label>Lista de Porsche</label>
             </div>
         </div>
+
+        <!-- Formulario para agregar nueva tarjeta - Controlado con CSS display -->
+        <div class="row mt-4 mb-4 formulario-container" 
+             [ngClass]="{ 'formulario-oculto': !mostrarFormulario }">
+            <div class="col-12 px-4">
+                <div class="card border-primary shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Agregar Nuevo Porsche</h5>
+                    </div>
+                    <div class="card-body p-4">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="titulo" class="form-label">Título</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="titulo"
+                                        [(ngModel)]="nuevaTarjeta.titulo"
+                                        name="titulo"
+                                        placeholder="Ej: Porsche 911 Turbo"
+                                        required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="imagen" class="form-label">URL de la Imagen</label>
+                                    <input 
+                                        type="text" 
+                                        class="form-control" 
+                                        id="imagen"
+                                        [(ngModel)]="nuevaTarjeta.imagen"
+                                        name="imagen"
+                                        placeholder="Ej: assets/mi-imagen.jpg"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="descripcion" class="form-label">Descripción</label>
+                                    <textarea 
+                                        class="form-control" 
+                                        id="descripcion"
+                                        [(ngModel)]="nuevaTarjeta.descripcion"
+                                        name="descripcion"
+                                        rows="3"
+                                        placeholder="Describe las características del vehículo..."
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-success me-3"
+                                        (click)="agregarTarjeta()">
+                                        Agregar Tarjeta
+                                    </button>
+                                    <button 
+                                        type="button" 
+                                        class="btn btn-secondary"
+                                        (click)="limpiarFormulario()">
+                                        Limpiar Campos
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-12">
-                @for (elemento of listaPorsche; track elemento.id) {
-                    <app-tarjeta></app-tarjeta>
+                @for (elemento of listaPorsche; track elemento.titulo) {
+                    <app-tarjeta [myCard]="elemento"></app-tarjeta>
                 }
             </div>
         </div>
     </div>
+
+    <div class="row mt-3">
+        <div class="col-12 text-end pe-3">
+            <button 
+                class="btn btn-primary"
+                (click)="toggleFormulario()">
+                {{ mostrarFormulario ? 'Ocultar Formulario' : 'Agregar Porsche' }}
+            </button>
+        </div>
+    </div>
 </div>
+

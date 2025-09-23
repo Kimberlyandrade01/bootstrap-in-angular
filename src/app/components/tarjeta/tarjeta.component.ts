@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 interface Card {
   imagen: string;
@@ -14,10 +14,5 @@ interface Card {
   styleUrl: './tarjeta.component.css'
 })
 export class TarjetaComponent {
-  myCard: Card = {
-    imagen: "assets/porshe.avif",
-    titulo: "Porsche 911 GT3",
-    descripcion: "Esta es la información de la tarjeta. Aquí puedes agregar texto descriptivo sobre el contenido de la imagen o cualquier detalle relevante."
-  };
+  @Input() myCard?: Card;
 }
-
