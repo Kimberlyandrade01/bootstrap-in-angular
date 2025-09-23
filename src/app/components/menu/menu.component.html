@@ -3,7 +3,13 @@
         <div class="row fw-bold">
             <div class="col-12">
                 <label>Lista de Porsche</label>
-                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                @for (elemento of listaPorsche; track elemento.id) {
+                    <app-tarjeta></app-tarjeta>
+                }
             </div>
         </div>
     </div>
