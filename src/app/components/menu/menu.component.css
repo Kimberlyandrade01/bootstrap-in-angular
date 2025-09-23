@@ -1,0 +1,9 @@
+/* Clase para ocultar el formulario */
+.formulario-oculto {
+    display: none;
+}
+
+/* Animación suave para la transición (opcional) */
+.formulario-container {
+    transition: all 0.3s ease-in-out;
+}
