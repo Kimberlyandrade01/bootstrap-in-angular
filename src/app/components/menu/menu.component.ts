@@ -5,10 +5,10 @@ import { TarjetaComponent } from '../tarjeta/tarjeta.component';
 
 @Component({
   selector: 'app-menu',
-  standalone: true,
-  imports: [TarjetaComponent, FormsModule, CommonModule],
   templateUrl: './menu.component.html',
-  styleUrl: './menu.component.css'
+  styleUrls: ['./menu.component.css'],
+  standalone: true,
+  imports: []
 })
 export class MenuComponent {
   // Propiedades para el formulario
