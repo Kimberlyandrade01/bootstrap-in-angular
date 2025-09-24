@@ -9,9 +9,9 @@ export interface Product {
 @Component({
   selector: 'app-tarjeta',
   templateUrl: './tarjeta.component.html',
-  styleUrls: ['./tarjeta.component.css']
+  styleUrls: ['./tarjeta.component.css'],
+  standalone: true
 })
 export class TarjetaComponent {
-  // Opción segura: puede ser undefined, el template lo maneja con *ngIf o ?.
-  @Input() myCard?: Product;
+  @Input() myCard: any;  // 👈 necesario para recibir [myCard] en el menú
 }

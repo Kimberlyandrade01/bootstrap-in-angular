@@ -1,6 +1,5 @@
 export interface Card {
-    imagen: string;
-    titulo: string;
-    descripcion: string;
+  titulo: string;
+  descripcion: string;
+  imagen: string;
 }
-// export interface Card {

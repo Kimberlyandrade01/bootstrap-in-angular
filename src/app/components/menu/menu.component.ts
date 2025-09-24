@@ -8,12 +8,12 @@ import { TarjetaComponent } from '../tarjeta/tarjeta.component';
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
   standalone: true,
-  imports: []
+  imports: [CommonModule, TarjetaComponent]
 })
 export class MenuComponent {
   // Propiedades para el formulario
-  mostrarFormulario = false; // Cambio a false para que inicie oculto
-  nuevaTarjeta = {
+    mostrarFormulario = false; // Cambio a false para que inicie oculto
+    nuevaTarjeta = {
     imagen: '',
     titulo: '',
     descripcion: ''
@@ -21,19 +21,19 @@ export class MenuComponent {
 
   listaPorsche = [
     { 
-      imagen: "assets/porshe.avif",
-      titulo: "Porsche 911 GT3",
-      descripcion: "El icónico deportivo alemán con motor atmosférico."
+      imagen: "assets/pastel.png",
+      titulo: "Pastel de 3 leches",
+      descripcion: "El icónico es delicioso."
     },
     { 
-      imagen: "assets/porshe911.png",
-      titulo: "Porsche 718 Cayman",
-      descripcion: "Coupé de motor central perfecto para carretera y pista."
+      imagen: "assets/pastel2.png",
+      titulo: "Delicioso de chocolate",
+      descripcion: "Recomendado por la sociedad de chocolateros."
     },
     { 
-      imagen: "assets/Taycan.png",
-      titulo: "Porsche Taycan",
-      descripcion: "El primer deportivo 100% eléctrico de Porsche."
+      imagen: "assets/pastel3.png",
+      titulo: "Pastel de fresa",
+      descripcion: "Delicioso y fresco."
     }
   ];
 
@@ -44,25 +44,23 @@ export class MenuComponent {
       this.limpiarFormulario();
     }
   }
+  limpiarFormulario() {
+    throw new Error('Method not implemented.');
+  }
 
   // Función para agregar nueva tarjeta
-  agregarTarjeta() {
-    if (this.nuevaTarjeta.titulo && this.nuevaTarjeta.descripcion && this.nuevaTarjeta.imagen) {
-      this.listaPorsche.push({
-        imagen: this.nuevaTarjeta.imagen,
-        titulo: this.nuevaTarjeta.titulo,
-        descripcion: this.nuevaTarjeta.descripcion
-      });
-      this.limpiarFormulario();
+    agregarTarjetaSinNgModel(titulo: string, imagen: string, descripcion: string, 
+                            tituloInput: HTMLInputElement, imagenInput: HTMLInputElement, descripcionInput: HTMLTextAreaElement) {
+      if (titulo && imagen && descripcion) {
+        this.listaPorsche.push({ titulo, imagen, descripcion });
+        this.limpiarCamposSinNgModel(tituloInput, imagenInput, descripcionInput);
+        this.mostrarFormulario = false; // opcional: ocultar formulario después de agregar
+      }
     }
-  }
 
   // Función para limpiar el formulario
-  limpiarFormulario() {
-    this.nuevaTarjeta = {
-      imagen: '',
-      titulo: '',
-      descripcion: ''
-    };
-  }
-}
+  limpiarCamposSinNgModel(tituloInput: HTMLInputElement, imagenInput: HTMLInputElement, descripcionInput: HTMLTextAreaElement) {
+  tituloInput.value = '';
+  imagenInput.value = '';
+  descripcionInput.value = '';
+}}
