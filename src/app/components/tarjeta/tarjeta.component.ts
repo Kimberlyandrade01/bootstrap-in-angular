@@ -1,18 +1,17 @@
 import { Component, Input } from '@angular/core';
 
-interface Card {
-  imagen: string;
+export interface Product {
   titulo: string;
   descripcion: string;
+  imagen?: string;
 }
 
 @Component({
   selector: 'app-tarjeta',
-  standalone: true,
-  imports: [],
   templateUrl: './tarjeta.component.html',
-  styleUrl: './tarjeta.component.css'
+  styleUrls: ['./tarjeta.component.css']
 })
 export class TarjetaComponent {
-  @Input() myCard?: Card;
+  // Opción segura: puede ser undefined, el template lo maneja con *ngIf o ?.
+  @Input() myCard?: Product;
 }
