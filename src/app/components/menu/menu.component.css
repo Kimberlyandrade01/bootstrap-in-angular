@@ -1,9 +1,67 @@
-/* Clase para ocultar el formulario */
-.formulario-oculto {
-    display: none;
+.menu {
+  background: #fffaf0; /* beige pastel */
+  padding: 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Animación suave para la transición (opcional) */
+.menu label {
+  font-family: 'Brush Script MT', cursive;
+  font-size: 2.2rem;
+  color: #ff7f50; /* coral pastel */
+  margin-bottom: 1.5rem;
+}
+
 .formulario-container {
-    transition: all 0.3s ease-in-out;
+  width: 100%;
+  max-width: 700px;
+  margin-bottom: 2rem;
+}
+
+.formulario-container .card {
+  border-radius: 1.2rem;
+  background: #fff0f5;
+  padding: 1rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+}
+
+.formulario-container input,
+.formulario-container textarea {
+  border-radius: 0.5rem;
+  border: 1px solid #ffa07a;
+  padding: 0.5rem;
+}
+
+button.btn-success {
+  background-color: #ff7f50;
+  border: none;
+  color: white;
+}
+
+button.btn-success:hover {
+  background-color: #ff6347;
+}
+
+button.btn-secondary {
+  background-color: #ffe4e1;
+  border: none;
+  color: #ff7f50;
+}
+
+button.btn-secondary:hover {
+  background-color: #ffb6c1;
+  color: white;
+}
+
+.row .col-12 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+.formulario-oculto {
+  display: none !important;
 }
